@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Form</title>
+</head>
+<body>
+
+    <form id="userForm">
+        <label for="userId">ID:</label>
+        <input type="text" id="userId" name="userId" required><br>
+
+        <label for="userName">Name:</label>
+        <input type="text" id="userName" name="userName" required><br>
+
+        <label for="userGender">Gender:</label>
+        <select id="userGender" name="userGender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select><br>
+
+        <button type="button" onclick="addUser()">Add</button>
+    </form>
+
+    <ul id="userList"></ul>
+
+    <script>
+        var users = [];
+        function addUser() {
+            var userId = document.getElementById('userId').value;
+            var userName = document.getElementById('userName').value;
+            var userGender = document.getElementById('userGender').value;
+            var newUser = {
+                id: userId,
+                name: userName,
+                gender: userGender
+            };
+            users.push(newUser);
+            displayUsers();
+        }
+        function displayUsers() {
+            var userList = document.getElementById('userList');
+            userList.innerHTML = '';
+            for (var i = 0; i < users.length; i++) {
+                var li = document.createElement('li');
+                li.textContent = 'ID: ' + users[i].id + ', Name: ' + users[i].name + ', Gender: ' + users[i].gender;
+                userList.appendChild(li);
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<style type="text/css" media="screen">
+    .user_item{
+    color: green;
+    text-decoration: underline;
+    cursor: pointer;
+}
+</style>
+<ul id="target">
+
+</ul>
+<script>
+    var users = [
+        {id: 1, name: "James Smith", gender: 1},
+        {id: 2, name: "Isla Brown", gender: 2},
+        {id: 3, name: "Amelia Davies", gender: 2},
+        {id: 4, name: "Jacob Evans", gender: 1}
+    ];
+    var target = document.getElementById("target");
+</script>
+
+<form id="userForm">
+    <label for="userId">ID:</label>
+    <input type="text" id="userId" name="userId" required><br>
+
+    <label for="userName">Name:</label>
+    <input type="text" id="userName" name="userName" required><br>
+
+    <label for="userGender">Gender:</label>
+    <select id="userGender" name="userGender" required>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+    </select><br>
+
+    <button type="button" onclick="addUser()">Add</button>
+</form>

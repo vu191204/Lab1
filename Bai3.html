@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camel Case Converter</title>
+</head>
+<body>
+
+    <label for="inputString">Input String:</label>
+    <input type="text" id="inputString" name="inputString">
+    <button type="button" onclick="convertToCamelCase()">Convert</button>
+
+    <h3>Output:</h3>
+    <p id="outputString"></p>
+
+    <script>
+        function convertToCamelCase() {
+            var inputString = document.getElementById('inputString').value;
+            var camelCaseString = processString(inputString);
+            document.getElementById('outputString').textContent = camelCaseString;
+        }
+
+        function processString(inputString) {
+            var cleanedString = inputString.replace(/[^\w\s]/gi, '').replace(/\s+/g, '');
+            var camelCaseString = cleanedString.replace(/(?:^\w|[A-Z]|\b\w)/g, function(word, index) {
+                return index === 0 ? word.toLowerCase() : word.toUpperCase();
+            });
+
+            return camelCaseString;
+        }
+    </script>
+
+</body>
+</html>
